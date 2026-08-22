@@ -31,3 +31,25 @@ build/
 
 ### VS Code ###
 .vscode/
+
+
+# Local database files
+data/
+*.mv.db
+*.trace.db
+
+# Uploaded resumes
+uploads/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# IDE files
+.vscode/
+.idea/
+
+# Operating system files
+.DS_Store
+Thumbs.db
