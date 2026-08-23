@@ -225,3 +225,10 @@ src/
 ## Limitations and Responsible Use
 
 The score is decision support, not an autonomous hiring decision. Recruiters should review the original resume and evidence, especially for borderline candidates. Scanned image-only PDFs require OCR, which is outside the assignment scope.
+
+
+## Demo Video
+
+Watch the complete 2–3 minute demonstration of the Smart Resume Screener:
+
+[▶ Watch the Smart Resume Screener Demo](https://1drv.ms/v/c/A5F6C450323E06E1/IQDT9DgTwUMnQIQb8E6BhzquAV0gaUBVkO0fzlXtBCEc1NY?e=xiPGaB)
