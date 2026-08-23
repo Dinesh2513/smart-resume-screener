@@ -1,0 +1,16 @@
+MEERA NAIR
+Email: meera.nair@example.com
+Phone: 977-654-3210
+
+SKILLS
+Python, TensorFlow, Machine Learning, Data Analysis, HTML, CSS
+
+WORK EXPERIENCE
+Machine Learning Intern, DataLab — 2025
+Prepared datasets and trained TensorFlow image classification models. Created reports and visualizations for research experiments.
+
+EDUCATION
+Bachelor of Technology in Artificial Intelligence and Data Science, Example University, 2025
+
+PROJECTS
+Skin disease image classifier and sentiment analysis model.

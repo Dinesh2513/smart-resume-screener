@@ -17,9 +17,15 @@ public record CandidateResponseDto(
         String education,
         Integer matchScore,
         String justification,
+        List<String> matchedSkills,
+        List<String> missingSkills,
+        String recommendation,
+        String analysisSource,
+        String jobTitle,
         CandidateStatus status,
         String originalFileName,
-        LocalDateTime createdAt
+        LocalDateTime createdAt,
+        LocalDateTime screenedAt
 ) {
 
     public static CandidateResponseDto from(Candidate candidate) {
@@ -33,9 +39,15 @@ public record CandidateResponseDto(
                 candidate.getEducation(),
                 candidate.getMatchScore(),
                 candidate.getJustification(),
+                splitSkills(candidate.getMatchedSkills()),
+                splitSkills(candidate.getMissingSkills()),
+                candidate.getRecommendation(),
+                candidate.getAnalysisSource(),
+                candidate.getJobTitle(),
                 candidate.getStatus(),
                 candidate.getOriginalFileName(),
-                candidate.getCreatedAt()
+                candidate.getCreatedAt(),
+                candidate.getScreenedAt()
         );
     }
 

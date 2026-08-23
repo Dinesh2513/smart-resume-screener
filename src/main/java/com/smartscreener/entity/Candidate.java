@@ -53,6 +53,26 @@ public class Candidate {
     @Lob
     private String justification;
 
+    @Column(length = 200)
+    private String jobTitle;
+
+    @Lob
+    private String jobDescription;
+
+    @Lob
+    private String matchedSkills;
+
+    @Lob
+    private String missingSkills;
+
+    @Column(length = 30)
+    private String recommendation;
+
+    @Column(length = 30)
+    private String analysisSource;
+
+    private LocalDateTime screenedAt;
+
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 30)
     private CandidateStatus status;
@@ -168,6 +188,62 @@ public class Candidate {
 
     public void setJustification(String justification) {
         this.justification = justification;
+    }
+
+    public String getJobTitle() {
+        return jobTitle;
+    }
+
+    public void setJobTitle(String jobTitle) {
+        this.jobTitle = jobTitle;
+    }
+
+    public String getJobDescription() {
+        return jobDescription;
+    }
+
+    public void setJobDescription(String jobDescription) {
+        this.jobDescription = jobDescription;
+    }
+
+    public String getMatchedSkills() {
+        return matchedSkills;
+    }
+
+    public void setMatchedSkills(String matchedSkills) {
+        this.matchedSkills = matchedSkills;
+    }
+
+    public String getMissingSkills() {
+        return missingSkills;
+    }
+
+    public void setMissingSkills(String missingSkills) {
+        this.missingSkills = missingSkills;
+    }
+
+    public String getRecommendation() {
+        return recommendation;
+    }
+
+    public void setRecommendation(String recommendation) {
+        this.recommendation = recommendation;
+    }
+
+    public String getAnalysisSource() {
+        return analysisSource;
+    }
+
+    public void setAnalysisSource(String analysisSource) {
+        this.analysisSource = analysisSource;
+    }
+
+    public LocalDateTime getScreenedAt() {
+        return screenedAt;
+    }
+
+    public void setScreenedAt(LocalDateTime screenedAt) {
+        this.screenedAt = screenedAt;
     }
 
     public CandidateStatus getStatus() {

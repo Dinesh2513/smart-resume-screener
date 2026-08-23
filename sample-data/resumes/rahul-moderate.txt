@@ -1,0 +1,16 @@
+RAHUL KUMAR
+Email: rahul.kumar@example.com
+Phone: 988-654-3210
+
+TECHNICAL SKILLS
+Java, Spring Boot, HTML, CSS, JavaScript, Git, MySQL
+
+WORK EXPERIENCE
+Junior Java Developer, Bright Apps — 2024 to Present
+Developed Java web features and basic Spring Boot endpoints. Worked with MySQL and Git in an agile team. Assisted with API testing and production support.
+
+EDUCATION
+Bachelor of Engineering in Information Technology, City Engineering College, 2024
+
+PROJECTS
+Service booking application and college attendance portal.

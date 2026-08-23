@@ -112,7 +112,7 @@ public class GlobalExceptionHandler {
     ) {
         ApiErrorResponse response = ApiErrorResponse.create(
                 status.value(),
-                status.getReasonPhrase(),
+                status.name().replace('_', ' '),
                 message,
                 request.getRequestURI(),
                 details

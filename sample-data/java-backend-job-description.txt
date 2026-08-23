@@ -1,0 +1,15 @@
+We are hiring a Java Backend Developer to design and maintain reliable business applications.
+
+Required skills:
+- Strong Java and Spring Boot development
+- REST API design and microservices
+- Spring Data JPA and Hibernate
+- SQL with MySQL or PostgreSQL
+- Git and Maven
+- Unit testing with JUnit
+
+Preferred skills:
+- Docker and AWS
+- CI/CD knowledge
+
+The candidate should have at least two years of backend development experience, communicate clearly, collaborate with an engineering team, and hold a degree in Computer Science or a related discipline.

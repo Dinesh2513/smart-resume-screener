@@ -1,0 +1,16 @@
+ANANYA SHARMA
+Email: ananya.sharma@example.com
+Phone: 987-654-3210
+
+TECHNICAL SKILLS
+Java, Spring Boot, Spring MVC, REST API, Microservices, Hibernate, JPA, MySQL, Git, Maven, JUnit, Docker, AWS
+
+WORK EXPERIENCE
+Backend Software Engineer, TechNova Solutions — 2022 to Present
+Built Spring Boot microservices and secure REST APIs for a financial platform. Designed JPA and Hibernate persistence layers using MySQL. Wrote JUnit tests, maintained Maven builds, used Git for collaboration, and containerized services with Docker for AWS deployment.
+
+EDUCATION
+Bachelor of Technology in Computer Science, National Institute of Engineering, 2022
+
+PROJECTS
+Recruitment analytics API and distributed payment processing service.

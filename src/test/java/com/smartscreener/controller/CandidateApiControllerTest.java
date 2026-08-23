@@ -5,6 +5,7 @@ import com.smartscreener.entity.CandidateStatus;
 import com.smartscreener.exception.GlobalExceptionHandler;
 import com.smartscreener.exception.ResumeProcessingException;
 import com.smartscreener.service.CandidateService;
+import com.smartscreener.service.ScreeningService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.mock.web.MockMultipartFile;
@@ -27,14 +28,19 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 class CandidateApiControllerTest {
 
     private CandidateService candidateService;
+    private ScreeningService screeningService;
     private MockMvc mockMvc;
 
     @BeforeEach
     void setUp() {
         candidateService = mock(CandidateService.class);
+        screeningService = mock(ScreeningService.class);
 
         CandidateApiController controller =
-                new CandidateApiController(candidateService);
+                new CandidateApiController(
+                        candidateService,
+                        screeningService
+                );
 
         mockMvc = MockMvcBuilders
                 .standaloneSetup(controller)
@@ -128,7 +134,7 @@ class CandidateApiControllerTest {
                 .andExpect(status().isBadRequest())
                 .andExpect(jsonPath("$.status").value(400))
                 .andExpect(jsonPath("$.error")
-                        .value("Bad Request"))
+                        .value("BAD REQUEST"))
                 .andExpect(jsonPath("$.message")
                         .value(
                                 "Only PDF and TXT resume files "
