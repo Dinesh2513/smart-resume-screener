@@ -65,6 +65,9 @@ public class Candidate {
     @Lob
     private String missingSkills;
 
+    @Lob
+    private String improvementRecommendations;
+
     @Column(length = 30)
     private String recommendation;
 
@@ -220,6 +223,16 @@ public class Candidate {
 
     public void setMissingSkills(String missingSkills) {
         this.missingSkills = missingSkills;
+    }
+
+    public String getImprovementRecommendations() {
+        return improvementRecommendations;
+    }
+
+    public void setImprovementRecommendations(
+            String improvementRecommendations
+    ) {
+        this.improvementRecommendations = improvementRecommendations;
     }
 
     public String getRecommendation() {

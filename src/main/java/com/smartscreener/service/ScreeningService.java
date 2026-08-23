@@ -55,6 +55,9 @@ public class ScreeningService {
         candidate.setJustification(result.justification());
         candidate.setMatchedSkills(String.join(", ", result.matchedSkills()));
         candidate.setMissingSkills(String.join(", ", result.missingSkills()));
+        candidate.setImprovementRecommendations(
+                String.join(" || ", result.improvementRecommendations())
+        );
         candidate.setRecommendation(result.recommendation());
         candidate.setAnalysisSource(result.analysisSource());
         candidate.setScreenedAt(LocalDateTime.now());

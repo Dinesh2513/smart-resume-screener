@@ -29,6 +29,7 @@ Show:
 - Score and candidate status
 - Matched and missing skill chips
 - Expand **View scoring evidence**
+- Show the job-specific **How to improve this resume's ATS match** actions
 - Analysis source (`OLLAMA_LLM` or `RULE_BASED_FALLBACK`)
 
 Say: “A score of seven or above is shortlisted, five to six requires manual review, and below five is rejected. The final decision remains with the recruiter.”

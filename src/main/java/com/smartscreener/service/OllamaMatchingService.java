@@ -233,6 +233,10 @@ public class OllamaMatchingService {
                 resultRoot.path("missingSkills")
         );
 
+        List<String> improvementRecommendations = readStringArray(
+                resultRoot.path("improvementRecommendations")
+        );
+
         String recommendation = normalizeRecommendation(
                 resultRoot.path("recommendation").asText(""),
                 score
@@ -243,6 +247,7 @@ public class OllamaMatchingService {
                 justification,
                 matchedSkills,
                 missingSkills,
+                improvementRecommendations,
                 recommendation,
                 "OLLAMA_LLM"
         );
@@ -275,6 +280,9 @@ public class OllamaMatchingService {
                 - justification: concise evidence-based explanation
                 - matchedSkills: skills supported by both documents
                 - missingSkills: important job skills not shown in resume
+                - improvementRecommendations: 3 to 5 specific, truthful
+                  actions that would improve this resume's ATS match for
+                  this job; never advise inventing experience or skills
                 - recommendation: exactly one of
                   HIGHLY_RECOMMENDED, RECOMMENDED, REVIEW,
                   NOT_RECOMMENDED
@@ -328,6 +336,16 @@ public class OllamaMatchingService {
         );
 
         properties.put(
+                "improvementRecommendations",
+                Map.of(
+                        "type", "array",
+                        "minItems", 3,
+                        "maxItems", 5,
+                        "items", Map.of("type", "string")
+                )
+        );
+
+        properties.put(
                 "recommendation",
                 Map.of(
                         "type", "string",
@@ -350,6 +368,7 @@ public class OllamaMatchingService {
                         "justification",
                         "matchedSkills",
                         "missingSkills",
+                        "improvementRecommendations",
                         "recommendation"
                 )
         );
@@ -435,14 +454,58 @@ public class OllamaMatchingService {
                 fallbackReason
         );
 
+        List<String> improvementRecommendations =
+                createFallbackRecommendations(
+                        missingSkills,
+                        parsedResume
+                );
+
         return new MatchResultDto(
                 score,
                 justification,
                 matchedSkills,
                 missingSkills,
+                improvementRecommendations,
                 recommendationForScore(score),
                 "RULE_BASED_FALLBACK"
         );
+    }
+
+    private List<String> createFallbackRecommendations(
+            List<String> missingSkills,
+            ParsedResumeDto parsedResume
+    ) {
+        List<String> recommendations = new ArrayList<>();
+
+        missingSkills.stream()
+                .limit(3)
+                .forEach(skill -> recommendations.add(
+                        "If you genuinely have " + skill
+                                + " experience, add it with a concrete project "
+                                + "or work achievement using the job's wording."
+                ));
+
+        if (parsedResume.experience()
+                .equals("Not clearly specified")) {
+            recommendations.add(
+                    "Add a clearly labelled experience section with role, "
+                            + "organization, dates, responsibilities, and results."
+            );
+        }
+
+        recommendations.add(
+                "Use measurable achievements such as performance gains, "
+                        + "delivery time, users served, or defects reduced."
+        );
+        recommendations.add(
+                "Keep standard ATS headings and place relevant keywords "
+                        + "naturally in skills, experience, and projects."
+        );
+
+        return recommendations.stream()
+                .distinct()
+                .limit(5)
+                .toList();
     }
 
     private int calculateTokenOverlapScore(

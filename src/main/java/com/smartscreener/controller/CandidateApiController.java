@@ -61,9 +61,9 @@ public class CandidateApiController {
                     "Please upload at least one resume."
             );
         }
-        if (resumes.length > 10) {
+        if (resumes.length > 20) {
             throw new ResumeProcessingException(
-                    "A maximum of 10 resumes can be screened at once."
+                    "A maximum of 20 resumes can be screened at once."
             );
         }
 

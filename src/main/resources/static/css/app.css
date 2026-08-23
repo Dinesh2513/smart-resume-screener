@@ -133,6 +133,9 @@ textarea { min-height: 170px; resize: vertical; line-height: 1.55; }
 .evidence-box.full { grid-column: 1 / -1; }
 .evidence-box strong { display: block; margin-bottom: 8px; font-size: 10px; text-transform: uppercase; letter-spacing: .07em; }
 .evidence-box p { margin: 0; color: var(--muted); line-height: 1.6; font-size: 11px; }
+.improvement-box { border-left: 3px solid var(--blue); background: var(--blue-soft); }
+.improvement-list { margin: 0; padding-left: 18px; color: #46516a; font-size: 11px; line-height: 1.65; }
+.improvement-list li + li { margin-top: 6px; }
 .delete-button { margin-top: 12px; border: 0; background: transparent; color: var(--red); padding: 0; cursor: pointer; font-size: 10px; font-weight: 750; }
 
 .loading-overlay { position: fixed; inset: 0; z-index: 100; display: none; place-items: center; padding: 24px; background: rgba(17, 27, 46, .62); backdrop-filter: blur(5px); }

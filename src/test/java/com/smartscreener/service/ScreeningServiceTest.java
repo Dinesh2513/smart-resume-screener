@@ -39,6 +39,11 @@ class ScreeningServiceTest {
                 "Strong Java and Spring Boot alignment.",
                 List.of("Java", "Spring Boot"),
                 List.of("Docker"),
+                List.of(
+                        "Add a Docker project with measurable results.",
+                        "Quantify backend performance improvements.",
+                        "Use relevant job-description keywords."
+                ),
                 "RECOMMENDED",
                 "OLLAMA_LLM"
         );
@@ -62,6 +67,9 @@ class ScreeningServiceTest {
         assertThat(screened.getMatchedSkills())
                 .isEqualTo("Java, Spring Boot");
         assertThat(screened.getMissingSkills()).isEqualTo("Docker");
+        assertThat(screened.getImprovementRecommendations())
+                .contains("Docker project")
+                .contains("measurable results");
         assertThat(screened.getAnalysisSource()).isEqualTo("OLLAMA_LLM");
         assertThat(screened.getScreenedAt()).isNotNull();
     }
@@ -78,6 +86,11 @@ class ScreeningServiceTest {
                 "Some requirements are satisfied.",
                 List.of("Java"),
                 List.of("Spring Boot", "SQL", "Docker"),
+                List.of(
+                        "Add relevant project evidence.",
+                        "Quantify achievements.",
+                        "Use standard ATS headings."
+                ),
                 "REVIEW",
                 "RULE_BASED_FALLBACK"
         ));

@@ -19,6 +19,7 @@ public record CandidateResponseDto(
         String justification,
         List<String> matchedSkills,
         List<String> missingSkills,
+        List<String> improvementRecommendations,
         String recommendation,
         String analysisSource,
         String jobTitle,
@@ -41,6 +42,9 @@ public record CandidateResponseDto(
                 candidate.getJustification(),
                 splitSkills(candidate.getMatchedSkills()),
                 splitSkills(candidate.getMissingSkills()),
+                splitRecommendations(
+                        candidate.getImprovementRecommendations()
+                ),
                 candidate.getRecommendation(),
                 candidate.getAnalysisSource(),
                 candidate.getJobTitle(),
@@ -59,6 +63,17 @@ public record CandidateResponseDto(
         return Arrays.stream(skills.split(","))
                 .map(String::trim)
                 .filter(skill -> !skill.isBlank())
+                .toList();
+    }
+
+    private static List<String> splitRecommendations(String recommendations) {
+        if (recommendations == null || recommendations.isBlank()) {
+            return List.of();
+        }
+
+        return Arrays.stream(recommendations.split("\\|\\|"))
+                .map(String::trim)
+                .filter(value -> !value.isBlank())
                 .toList();
     }
 }

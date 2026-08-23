@@ -20,8 +20,8 @@ form.addEventListener('submit', async (event) => {
     event.preventDefault();
     clearAlert();
 
-    if (fileInput.files.length > 10) {
-        showAlert('Select a maximum of 10 resumes.', 'error');
+    if (fileInput.files.length > 20) {
+        showAlert('Select a maximum of 20 resumes.', 'error');
         return;
     }
 
@@ -87,6 +87,7 @@ function renderCandidates(candidates) {
         const statusClass = candidate.status.toLowerCase().replaceAll('_', '-');
         const matched = candidate.matchedSkills || [];
         const missing = candidate.missingSkills || [];
+        const improvements = candidate.improvementRecommendations || [];
         const previewSkills = matched.length ? matched : candidate.skills || [];
 
         const card = document.createElement('article');
@@ -126,6 +127,12 @@ function renderCandidates(candidates) {
                     <div class="evidence-box full">
                         <strong>Decision metadata</strong>
                         <p>Recommendation: ${escapeHtml(candidate.recommendation || 'Pending')} · Source: ${escapeHtml(candidate.analysisSource || 'Not analysed')}</p>
+                    </div>
+                    <div class="evidence-box full improvement-box">
+                        <strong>How to improve this resume's ATS match</strong>
+                        ${improvements.length
+                            ? `<ol class="improvement-list">${improvements.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ol>`
+                            : '<p>No improvement recommendations are available yet.</p>'}
                     </div>
                 </div>
                 <button class="delete-button" data-id="${candidate.id}">Delete candidate</button>

@@ -4,10 +4,11 @@ An AI-assisted recruitment application that extracts structured information from
 
 ## Highlights
 
-- Upload and screen up to 10 PDF or TXT resumes at once
+- Upload and screen up to 20 PDF or TXT resumes at once
 - Extract name, email, phone, skills, experience, and education
 - Score candidates from 1–10 using a local Ollama LLM
 - Show matched skills, missing skills, recommendation, and justification
+- Show truthful, job-specific actions that can improve each resume's ATS match
 - Fall back to deterministic skill matching if Ollama is unavailable
 - Automatically mark candidates as shortlisted, review required, or rejected
 - Persist parsed resumes and screening results in an H2 database
@@ -143,6 +144,7 @@ The Ollama service sends a structured recruitment prompt that:
    - `justification`
    - `matchedSkills`
    - `missingSkills`
+   - `improvementRecommendations`
    - `recommendation`
 
 Ollama receives a JSON Schema through its structured-output `format` field. Returned scores are validated before persistence. Invalid, timed-out, or unavailable LLM responses activate the deterministic fallback.

@@ -7,6 +7,7 @@ public record MatchResultDto(
         String justification,
         List<String> matchedSkills,
         List<String> missingSkills,
+        List<String> improvementRecommendations,
         String recommendation,
         String analysisSource
 ) {
@@ -30,6 +31,10 @@ public record MatchResultDto(
         missingSkills = missingSkills == null
                 ? List.of()
                 : List.copyOf(missingSkills);
+
+        improvementRecommendations = improvementRecommendations == null
+                ? List.of()
+                : List.copyOf(improvementRecommendations);
 
         recommendation = normalizeText(
                 recommendation,
